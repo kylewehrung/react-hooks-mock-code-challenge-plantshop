@@ -14,7 +14,7 @@ function App() {
 
 
 function onAddPlant(newPlant) {
-  setShowPlants([...showPlants, newPlant])
+  setShowPlants([ newPlant,...showPlants ])
 }
 
 

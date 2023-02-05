@@ -1,7 +1,11 @@
 import React, {useState} from "react";
 
 function NewPlantForm({ onAddPlant }) {
-const [newPlant, setNewPlant] = useState([])
+const [newPlant, setNewPlant] = useState({      //this was originally an empty array and worked, not controlled but it worked
+  name: "",
+  image: "",
+  price: ","
+})
 
 
 
