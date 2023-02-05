@@ -1,16 +1,17 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({showPlants}) {
-  const allThePlants = showPlants.map((plant) => {
-   return <PlantCard 
-    key={plant.id}
-    plant={plant}
-    />
-  })
+function PlantList({ plants, onDelete }) {
+const partyPlants = plants.map((plant) => {
+  return <PlantCard  
+  key={plant.id}
+  plant={plant}
+  onDelete={onDelete}
+  />
+})
 
   return (
-    <ul className="cards">{allThePlants}</ul>
+    <ul className="cards">{partyPlants}</ul>
   );
 }
 

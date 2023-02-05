@@ -1,7 +1,9 @@
 import React from "react";
 
 function Search({ setSearch }) {
-const { search } = setSearch //added this to add search as value
+const { search} = setSearch
+
+
 
   return (
     <div className="searchbar">
@@ -9,7 +11,7 @@ const { search } = setSearch //added this to add search as value
       <input
         type="text"
         id="search"
-        value={search}        //didn't originally have this, still worked but not controlled
+        value={search}
         placeholder="Type a name to search..."
         onChange={(e) => setSearch(e.target.value)}
       />

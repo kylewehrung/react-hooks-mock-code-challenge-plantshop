@@ -1,48 +1,46 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-function NewPlantForm({ onAddPlant }) {
-const [newPlant, setNewPlant] = useState({      //this was originally an empty array and worked, not controlled but it worked
-  name: "",
-  image: "",
-  price: ","
-})
-
-
-
-function handlePlantFormSubmit(event) {
+function NewPlantForm({ onSubmit }) {
+  const [newPlants, setNewPlants] = useState({
+   name: "",
+   image: "",
+   price: "",
+  })
+  
+function handleFormSubmit(event) {
   event.preventDefault()
- onAddPlant({
-  ...newPlant})
-
-}
-
-function handleNewItem(event) {
-  setNewPlant({
-    ...newPlant,
-    [event.target.name]: event.target.value
+  onSubmit({
+    ...newPlants
   })
 }
 
 
+  function handleChange(event) {
+    setNewPlants({
+      ...newPlants,
+      [event.target.name]: event.target.value
+    })
+  }
 
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
-      <form onSubmit={handlePlantFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <input 
-        value={newPlant.name}
-        onChange={handleNewItem}
+        onChange={handleChange}
+        value={newPlants.name}
         type="text" name="name" placeholder="Plant name" />
         <input 
-        value={newPlant.image}
-        onChange={handleNewItem}
+        onChange={handleChange}
+        value={newPlants.image}
         type="text" name="image" placeholder="Image URL" />
         <input 
-        value={newPlant.price}
-        onChange={handleNewItem}
+        onChange={handleChange}
+        value={newPlants.price}
         type="number" name="price" step="0.01" placeholder="Price" />
-
-        <button type="submit">Add Plant</button>
+        <button 
+        
+        type="submit">Add Plant</button>
       </form>
     </div>
   );
